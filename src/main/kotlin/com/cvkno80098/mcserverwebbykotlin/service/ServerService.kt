@@ -35,7 +35,7 @@ class ServerService(
                 if (server.serverFlag) {
                     minecraftServerStatusService.isServerOnline(server.host, server.port)
                 } else {
-                    // TODO:个人局域网联机验证暂未完成
+                    // 应该完成了吧...
                     minecraftPersonalStatusService.isServerOnline(server.host, server.port)
                 }
             } else {
