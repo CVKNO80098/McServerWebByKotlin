@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: McServerWebByKotlin
+
+  # MySQL 数据源（本地需先创建库：CREATE DATABASE mc_server_list;）
+  datasource:
+    url: jdbc:mysql://localhost:3306/mc_server_list?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: hi58lo32
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      # 开发阶段自动建表/更新字段；生产环境建议改为 validate
+      ddl-auto: update
+    show-sql: true
+    # REST 项目不需要 Open Session In View，关闭可避免懒加载警告
+    open-in-view: false
+
+server:
+  port: 8080
+
+# JWT 密钥请在部署环境通过 JWT_SECRET 环境变量覆盖；默认值仅用于本地开发。
+app:
+  jwt:
+    secret: ${JWT_SECRET:MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=}
+    expiration-minutes: 1440
+
+logging:
+  level:
+    root: info
+    com.cvkno80098.mcserverwebbykotlin: debug
