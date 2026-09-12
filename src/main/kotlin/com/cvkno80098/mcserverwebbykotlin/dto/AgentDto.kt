@@ -9,7 +9,7 @@ data class AgentDto (
     val verificationLevel: String,
     val minecraft: Minecraft,
     val virtualNetworks: List<VirtualNetworks>,
-    val timestamp: Long
+    val timestamp: String
 )
 
 data class Minecraft (

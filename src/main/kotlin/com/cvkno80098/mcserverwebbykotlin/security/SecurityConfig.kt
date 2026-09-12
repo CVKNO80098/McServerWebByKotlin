@@ -27,10 +27,11 @@ class SecurityConfig(
             it
                 .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                 .requestMatchers(
-                "/",
-                "/auth/register",
-                "/auth/login",
-            ).permitAll()
+                    "/",
+                    "/auth/register",
+                    "/auth/login",
+                    "/room/agent/heartbeat"
+                ).permitAll()
                 // 只开放服务器资源的读取请求，POST /server/list/create 仍需登录。
                 .requestMatchers(HttpMethod.GET, "/server/list/**").permitAll()
                 .anyRequest().authenticated()
